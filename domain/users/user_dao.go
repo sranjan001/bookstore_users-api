@@ -11,7 +11,7 @@ const (
 	indexUniqueEmail = "email_UNIQUE"
 	errorNoRows      = "no rows in result set"
 	queryInsertUser  = "INSERT INTO users(first_name, last_name, email, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?)"
-	queryGetUser     = "SELECT id, first_name, last_name, email, date_created FROM users where  id= ?"
+	queryGetUser     = "SELECT id, first_name, last_name, email, date_created, status FROM users where  id= ?"
 	queryUpdateUser  = "UPDATE users SET first_name=?, last_name=?,email=? WHERE id=?"
 	queryDeleteUser  = "DELETE from users where id=?"
 
@@ -26,7 +26,7 @@ func (user *User) Get() *errors.RestError {
 	}
 	defer stmt.Close()
 	result := stmt.QueryRow(user.Id)
-	if getErr := result.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.DateCreated); getErr != nil {
+	if getErr := result.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.DateCreated, &user.Status); getErr != nil {
 		return mysql_utils.ParseError(getErr)
 	}
 

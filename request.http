@@ -1,0 +1,51 @@
+POST http://localhost:80/api/item
+Content-Type: application/json
+
+{}
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{"id":  123, "first_name":  "Fede", "email":  1}
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{"id":  5651, "first_name":  "Fede3333", "email":  "fed333eeee@gmail.com", }
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{ "first_name":  "Fede", "last_name": "lastnmae", "email":  "satddd@gmail.com", "status": "active", "status": "active", "password":  "ms1"}
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{ "first_name":  "second", "last_name": "secondlast", "email":  "second@gmail.com", "status": "active", "status": "active"}
+
+###
+
+GET http://localhost:8080/users/22
+
+###
+PUT http://localhost:8080/users/1
+Content-Type: application/json
+
+{ "first_name":  "Satya2", "last_name": "Rrr", "email":  "satya2ddddd@gmail.com", "status":  "active"}
+
+###
+PATCH http://localhost:8080/users/1
+Content-Type: application/json
+
+{"email":  "tes@dff.com", "status":  "active"}
+
+###
+DELETE http://localhost:8080/users/2255
+Content-Type: application/json
+
+###
+GET http://localhost:8080/internal/users/search?status=active

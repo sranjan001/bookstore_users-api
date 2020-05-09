@@ -13,7 +13,7 @@ Content-Type: application/json
 POST http://localhost:8080/users
 Content-Type: application/json
 
-{"id":  5651, "first_name":  "Fede3333", "email":  "fed@gmail.com", "password": "ggdg" }
+{"id":  5651, "first_name":  "Fede3333", "email":  "fssed@gmail.com", "password": "ggdg" }
 
 ###
 POST http://localhost:8080/users
@@ -30,7 +30,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/users/6
-X-PUBLIC: true
+X-PUBLIC: false
 
 ###
 PUT http://localhost:8080/users/1
@@ -50,4 +50,4 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/internal/users/search?status=active
-X-PUBLIC: false
+X-PUBLIC: true

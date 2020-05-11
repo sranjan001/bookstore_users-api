@@ -13,13 +13,13 @@ Content-Type: application/json
 POST http://localhost:8080/users
 Content-Type: application/json
 
-{"id":  5651, "first_name":  "Fede3333", "email":  "fssed@gmail.com", "password": "ggdg" }
+{"id":  5651, "first_name":  "Fe", "email":  "test@gmail.com", "password": "ggdg" }
 
 ###
 POST http://localhost:8080/users
 Content-Type: application/json
 
-{ "first_name":  "Fede", "last_name": "lastnmae", "email":  "satddd@gmail.com", "status": "active", "status": "active", "password":  "ms1"}
+{ "first_name":  "Satya", "last_name": "lastnmae", "email":  "satya@email.com", "status": "active", "status": "active", "password":  "ms1"}
 
 ###
 POST http://localhost:8080/users
@@ -29,8 +29,8 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/users/6
-X-PUBLIC: false
+GET http://localhost:8080/users/13
+X-PUBLIC: true
 
 ###
 PUT http://localhost:8080/users/1
@@ -50,4 +50,17 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/internal/users/search?status=active
+X-PUBLIC: true
+
+###
+POST http://localhost:8080/users/login
+Content-Type: application/json
+
+{
+ "email": "satya@email.com",
+  "password": "ms1"
+}
+
+###
+GET http://localhost:8080/users/13?access_token=5tq23ixD
 X-PUBLIC: true

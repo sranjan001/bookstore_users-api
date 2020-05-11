@@ -18,6 +18,7 @@ type usersServiceInterface interface {
 	UpdateUser(bool, users.User) (*users.User, *errors.RestError)
 	DeleteUser(int64) *errors.RestError
 	Search(string) (users.Users, *errors.RestError)
+	LoginUser(request users.LoginRequest) (*users.User, *errors.RestError)
 }
 
 type usersService struct {
@@ -84,4 +85,15 @@ func (s *usersService) DeleteUser(userId int64) *errors.RestError {
 func (s *usersService) Search(status string) (users.Users, *errors.RestError) {
 	dao := &users.User{}
 	return dao.FindByStatus(status)
+}
+
+func (s *usersService) LoginUser(request users.LoginRequest) (*users.User, *errors.RestError) {
+	dao := &users.User{
+		Email:    request.Email,
+		Password: crypto_utils.GetMd5(request.Password),
+	}
+	if err := dao.FindByEmailAndPasswrod(); err != nil {
+		return nil, err
+	}
+	return dao, nil
 }
